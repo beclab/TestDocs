@@ -13,6 +13,8 @@ import FilterableList from "./components/FilterableList.vue";
 import { onMounted, watch, nextTick, onBeforeMount } from "vue";
 import mediumZoom from "medium-zoom";
 import OSTabs from "./components/OStabs.vue";
+import VersionSwitcher from "./components/VersionSwitcher.vue";
+import _ from "lodash";
 
 const LANGUAGE_ZH_PATH = "/zh/";
 const LANGUAGE_ZH_KEY = "zh";
@@ -29,6 +31,7 @@ export default {
     app.component("LaunchCard", LaunchCard);
     app.component("FilterableList", FilterableList);
     app.component("OSTabs", OSTabs);
+    app.component("VersionSwitcher", VersionSwitcher);
   },
 
   setup() {

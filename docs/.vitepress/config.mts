@@ -1,10 +1,46 @@
-import { defineConfig } from "vitepress";
+import { defineConfig,UserConfig,DefaultTheme } from "vitepress";
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { en } from "./en";
 import { zh } from "./zh";
+import _ from "lodash";
+//import defaultConfig from 'vitepress-versioning-plugin';
+
+ 
+
+function defineVersionedConfig2(
+  defaultConfig: UserConfig<DefaultTheme.Config>
+): UserConfig<DefaultTheme.Config> {
+  let config = _.defaultsDeep(defaultConfig);
+
+  if( !process.env.BASE_URL || !process.env.VERSIONS || !process.env.LATEST_VERSION ) {
+    return config;
+  }
+
+  const versions =  process.env.VERSIONS?.split(",");
+  const latestVersion = process.env.LATEST_VERSION || versions![versions!.length - 1];
+  
+  for( const locale of Object.keys(config.locales) ) {
+    let themeConfig = config.locales[locale]!.themeConfig!;
+
+    themeConfig?.nav?.push(     
+          {
+            component: 'VersionSwitcher',
+            // Optional props to pass to the component
+            props: {
+              versions,
+              latestVersion,
+            }
+          }
+    );
+  }
+  
+  return config;
+}
+
+
 
 // https://vitepress.dev/reference/site-config
-export default withMermaid({
+export default defineVersionedConfig2(withMermaid({
   title: "Olares",
   description: "Let people own their data again",
   lang: "en",
@@ -79,7 +115,7 @@ export default withMermaid({
     hostname: "https://docs.olares.com/",
   },
   lastUpdated: true,
-  base: process.env.DOC_BASE || "/",
+  base: process.env.BASE_URL || "/",
   vite: {
     build: {
       minify: "terser",
@@ -103,4 +139,4 @@ export default withMermaid({
       },
     ],
   ],
-});
+}));
