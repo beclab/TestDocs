@@ -17,8 +17,5 @@
       "destination": "/manual/docs-home.html",
       "permanent": true
     }
-  ],
-  "build": {
-    "ignoreCommand": "git diff --quiet HEAD^ HEAD ./docs"
-  }
+  ]
 }
