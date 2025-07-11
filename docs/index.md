@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Olares"
-  text: "Let people own their data again"
+  text: "Let people own their data again!"
   actions:
     - theme: brand
       text: What is Olares?
