@@ -18,14 +18,7 @@
       "permanent": true
     }
   ],
-
-  "buildCommand": "npm run docs:build",
-  "outputDirectory": "docs/.vitepress/dist",
-  "installCommand": "npm install",
-  
-  "functions": {
-    "docs/**/*": {
-      "maxDuration": 30
-    }
+  "build": {
+    "ignoreBuildStep": "bash build/ignore-docs-build.sh"
   }
 }
