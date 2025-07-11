@@ -19,6 +19,6 @@
     }
   ],
   "build": {
-    "ignoreBuildStep": "bash build/ignore-docs-build.sh"
+    "ignoreCommand": "git diff --quiet HEAD^ HEAD ./docs"
   }
 }
