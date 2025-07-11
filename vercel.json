@@ -17,5 +17,15 @@
       "destination": "/manual/docs-home.html",
       "permanent": true
     }
-  ]
+  ],
+
+  "buildCommand": "npm run docs:build",
+  "outputDirectory": "docs/.vitepress/dist",
+  "installCommand": "npm install",
+  
+  "functions": {
+    "docs/**/*": {
+      "maxDuration": 30
+    }
+  }
 }
