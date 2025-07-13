@@ -16,7 +16,7 @@ const baseUrl = computed(() => {
   if( inBrowser ) {
     return window.location.href.split('/').slice(0,3).join('/');
   } 
-  //return site.value.base;
+  
   return '/';
 });
 

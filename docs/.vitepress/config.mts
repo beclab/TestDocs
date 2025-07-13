@@ -18,7 +18,8 @@ function defineVersionedConfig2(
 
   const versions =  process.env.VERSIONS?.split(",");
   const latestVersion = process.env.LATEST_VERSION || versions![versions!.length - 1];
-  
+  console.log(versions, latestVersion);
+
   for( const locale of Object.keys(config.locales) ) {
     let themeConfig = config.locales[locale]!.themeConfig!;
 
