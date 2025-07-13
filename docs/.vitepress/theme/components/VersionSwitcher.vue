@@ -16,6 +16,9 @@ const baseUrl = computed(() => {
   let url = "/";
   if( inBrowser ) {
     url =  window.location.href.split('/').slice(0,3).join('/');
+    if( !url.endsWith('/') ) {
+      url = url + '/';
+    }
   } 
   
   console.log('url', url);
