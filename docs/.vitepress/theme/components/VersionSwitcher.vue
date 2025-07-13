@@ -10,21 +10,26 @@ const props = defineProps<{
 }>();
 
 const router = useRouter();
-const { site } = useData();
+//const { site } = useData();
 
 const baseUrl = computed(() => {
+  let url = "/";
   if( inBrowser ) {
-    return window.location.href.split('/').slice(0,3).join('/');
+    url =  window.location.href.split('/').slice(0,3).join('/');
   } 
   
-  return '/';
+  console.log('url', url);
+  return url;
 });
 
 const currentVersion = computed(() => {
   let version = props.latestVersion;
 
   for (const v of props.versions) {
-    if (router.route.path.startsWith(`${site.value.base}${v}/`)) {
+    const u = `${baseUrl.value}${v}/`;
+    console.log('currentVersion', u);
+    if (router.route.path.startsWith(u)) {
+      
       version = v;
       break;
     }
