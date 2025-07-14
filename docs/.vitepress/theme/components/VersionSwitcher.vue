@@ -10,7 +10,7 @@ const props = defineProps<{
 }>();
 
 const router = useRouter();
-const { site } = useData();
+//const { site } = useData();
 
 const baseUrl = computed(() => {
   let url = "/";
