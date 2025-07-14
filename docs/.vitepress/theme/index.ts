@@ -39,19 +39,6 @@ export default {
     const router = useRouter();
     const { lang } = useData();
 
-    const baseUrl = computed(() => {
-      let url = "/";
-      if( inBrowser ) {
-        url =  window.location.href.split('/').slice(0,3).join('/');
-        if( url.endsWith('/') ) {
-          url = url.slice(0, -1);
-        }
-      } 
-      
-      console.log('url', url);
-      return url;
-    });
-
     const routerRedirect = () => {
       let localLanguage = localStorage.getItem(LANGUAGE_LOCAL_KEY) || 'en';
       

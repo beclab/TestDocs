@@ -10,9 +10,9 @@ const props = defineProps<{
 }>();
 
 const router = useRouter();
-//const { site } = useData();
+const { site } = useData();
 
-const baseUrl = computed(() => {
+const localUrl = computed(() => {
   let url = "/";
   if( inBrowser ) {
     url =  window.location.href.split('/').slice(0,3).join('/');
@@ -21,7 +21,7 @@ const baseUrl = computed(() => {
     }
   } 
   
-  console.log('baseUrl', url);
+  console.log('localUrl', url);
   return url;
 });
 
@@ -42,6 +42,8 @@ const currentVersion = computed(() => {
   return version;
 });
 
+const customLink = (path) => path.replace(site.value.base || '', '');
+
 const isOpen = ref(false);
 const toggle = () => {
   isOpen.value = !isOpen.value;
@@ -56,12 +58,14 @@ const toggle = () => {
         text: latestVersion,
         link: `/`,
       }" /> -->
-      <template v-for="version in versions" :key="version">
-        <VPMenuLink v-if="currentVersion != version" :item="{
+       <template v-for="version in versions" :key="version">
+        <!-- <VPMenuLink v-if="currentVersion != version" :item="{
           text: version,
-          link: `${baseUrl}${version}/`,
-          target: '_blank'
-        }" />
+          link: `${localUrl}${version}/`,
+          target: '_blank',
+          rel: 'a'
+        }" />   -->
+       <a v-if="currentVersion != version" :href="`${localUrl}${version}/`" target="_blank">{{ version }}</a>
       </template>
     </div>
   </VPFlyout>
@@ -84,6 +88,8 @@ const toggle = () => {
   align-items: center;
 }
 
+
+
 .icon {
   padding: 8px;
 }
@@ -96,12 +102,39 @@ const toggle = () => {
   color: var(--vp-c-text-1);
 }
 
+
+
+
 .VPScreenVersionSwitcher {
   border-bottom: 1px solid var(--vp-c-divider);
   height: 48px;
   overflow: hidden;
   transition: border-color 0.5s;
 }
+
+.VPVersionSwitcher a {
+  display: block;
+  border-radius: 6px;
+  padding: 0 12px;
+  line-height: 32px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
+}
+
+.VPVersionSwitcher a:hover {
+  color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-default-soft);
+}
+
+.VPVersionSwitcher a.active {
+  color: var(--vp-c-brand-1);
+}
+
 
 .VPScreenVersionSwitcher .items {
   visibility: hidden;
