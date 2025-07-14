@@ -21,7 +21,7 @@ const baseUrl = computed(() => {
     }
   } 
   
-  console.log('url', url);
+  console.log('baseUrl', url);
   return url;
 });
 
@@ -29,10 +29,11 @@ const currentVersion = computed(() => {
   let version = props.latestVersion;
 
   for (const v of props.versions) {
-    const u = `${baseUrl.value}${v}/`;
-    console.log('currentVersion', u);
+    const u = `/${v}/`;
+    console.log('u', u);
+    console.log('router.route.path', router.route.path);
     if (router.route.path.startsWith(u)) {
-      
+      console.log('match version', v);
       version = v;
       break;
     }
@@ -48,13 +49,13 @@ const toggle = () => {
 </script>
 
 <template>
-  <VPFlyout v-if="!screenMenu" class="VPVersionSwitcher" icon="vpi-versioning" :button="currentVersion"
+  <VPFlyout  class="VPVersionSwitcher" icon="vpi-versioning" :button="currentVersion"
     :label="'Switch Version'">
     <div class="items">
-      <VPMenuLink v-if="currentVersion != latestVersion" :item="{
+      <!-- <VPMenuLink v-if="currentVersion != latestVersion" :item="{
         text: latestVersion,
         link: `/`,
-      }" />
+      }" /> -->
       <template v-for="version in versions" :key="version">
         <VPMenuLink v-if="currentVersion != version" :item="{
           text: version,
@@ -63,25 +64,7 @@ const toggle = () => {
       </template>
     </div>
   </VPFlyout>
-  <div v-else class="VPScreenVersionSwitcher" :class="{ open: isOpen }">
-    <button class="button" aria-controls="navbar-group-version" :aria-expanded="isOpen" @click="toggle">
-      <span class="button-text"><span class="vpi-versioning icon" />Switch Version</span>
-      <span class="vpi-plus button-icon" />
-    </button>
-
-    <div id="navbar-group-version" class="items">
-      <VPMenuLink :item="{
-        text: latestVersion,
-        link: `/`,
-      }" />
-      <template v-for="version in versions" :key="version">
-        <VPMenuLink :item="{
-          text: version,
-          link: `${baseUrl}${version}/`,
-        }" />
-      </template>
-    </div>
-  </div>
+   
 </template>
 
 <style>
