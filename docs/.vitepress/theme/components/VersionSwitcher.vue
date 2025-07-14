@@ -10,7 +10,7 @@ const props = defineProps<{
 }>();
 
 const router = useRouter();
-//const { site } = useData();
+const { site } = useData();
 
 const baseUrl = computed(() => {
   let url = "/";
@@ -59,7 +59,7 @@ const toggle = () => {
       <template v-for="version in versions" :key="version">
         <VPMenuLink v-if="currentVersion != version" :item="{
           text: version,
-          link: `/${version}/`,
+          link: `${baseUrl}${version}/`,
           target: '_blank'
         }" />
       </template>
