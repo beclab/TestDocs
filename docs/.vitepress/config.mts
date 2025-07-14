@@ -122,6 +122,10 @@ export default defineVersionedConfig2(withMermaid({
       minify: "terser",
       chunkSizeWarningLimit: Infinity,
     },
+    define: {
+      'process.env.VERSIONS': JSON.stringify(process.env.VERSIONS || []),
+      'process.env.LANGUAGES': JSON.stringify(process.env.LANGUAGES || []),
+    }
   },
   head: [
     [

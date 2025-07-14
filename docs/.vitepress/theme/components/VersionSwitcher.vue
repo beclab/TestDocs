@@ -58,7 +58,7 @@ const toggle = () => {
       <template v-for="version in versions" :key="version">
         <VPMenuLink v-if="currentVersion != version" :item="{
           text: version,
-          link: `${baseUrl}/${version}/`,
+          link: `${baseUrl}${version}/`,
         }" />
       </template>
     </div>
@@ -77,7 +77,7 @@ const toggle = () => {
       <template v-for="version in versions" :key="version">
         <VPMenuLink :item="{
           text: version,
-          link: `${baseUrl}/${version}/`,
+          link: `${baseUrl}${version}/`,
         }" />
       </template>
     </div>

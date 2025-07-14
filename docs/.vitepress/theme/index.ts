@@ -10,7 +10,7 @@ import { App } from "vue";
 import Tabs from "./components/tabs.vue";
 import LaunchCard from "./components/LaunchCard.vue";
 import FilterableList from "./components/FilterableList.vue";
-import { onMounted, watch, nextTick, onBeforeMount } from "vue";
+import { onMounted, watch, nextTick, onBeforeMount,computed } from "vue";
 import mediumZoom from "medium-zoom";
 import OSTabs from "./components/OStabs.vue";
 import VersionSwitcher from "./components/VersionSwitcher.vue";
@@ -39,23 +39,54 @@ export default {
     const router = useRouter();
     const { lang } = useData();
 
-    const routerRedirect = () => {
-      const startsWithZH = navigator.language.startsWith(LANGUAGE_ZH_KEY);
-      const localLanguage = localStorage.getItem(LANGUAGE_LOCAL_KEY);
+    const baseUrl = computed(() => {
+      let url = "/";
+      if( inBrowser ) {
+        url =  window.location.href.split('/').slice(0,3).join('/');
+        if( url.endsWith('/') ) {
+          url = url.slice(0, -1);
+        }
+      } 
+      
+      console.log('url', url);
+      return url;
+    });
 
-      const language = localLanguage
-        ? localLanguage
-        : startsWithZH
-        ? LANGUAGE_ZH_KEY
-        : LANGUAGE_EN_KEY;
-      const isZh = language === LANGUAGE_ZH_KEY;
-      if (isZh && !route.path.includes(LANGUAGE_ZH_PATH)) {
-        router.go(`/zh${route.path}`);
-        return;
+    const routerRedirect = () => {
+      let localLanguage = localStorage.getItem(LANGUAGE_LOCAL_KEY) || 'en';
+      
+      const versions = process.env.VERSIONS!.split(",") || [];
+      versions.push('default');
+
+      const languages = process.env.LANGUAGES!.split(",") || [];
+      languages.push('en');
+      console.log(versions, languages,localLanguage)
+
+      if(!languages?.includes(localLanguage) ){
+        localLanguage = 'en';
       }
-      if (!isZh && route.path.includes(LANGUAGE_ZH_PATH)) {
-        router.go(route.path.replace(LANGUAGE_ZH_PATH, "/"));
-        return;
+
+
+      const currentPath = router.route.path;
+      
+      console.log('router.route.path', router.route.path);
+      for( const l of languages ) {
+        let localLanguagePath = (l === 'en' ? '' : `/${l}`);
+        for (const v of versions) {
+            let localVersionPath = (v === 'default' ? '' : `/${v}`);
+            const u = `${localVersionPath}${localLanguagePath}`;
+            console.log('checkPrefix', u);
+            if (currentPath.startsWith(u)) {
+                console.log('find localLanguage', localLanguage, l);
+                if( l !== localLanguage ) {
+                  let targetLanguagePath = (localLanguage === 'en' ? '' : `/${localLanguage}`);
+                  const nextUrl = `${localVersionPath}${targetLanguagePath}${route.path.replace(u, '')}`;
+                  router.go(nextUrl);
+                }            
+                return;
+            
+          }
+        }
       }
     };
 
