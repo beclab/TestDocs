@@ -65,7 +65,7 @@ Olares 使用轻量级容器运行时 [containerd](../developer/install/installa
 
 Olares 的集群管理通过以下工具实现：
 
-- [olares-cli](../developer/install/cli-1.11/olares-cli.md)：命令行工具，用于管理 Olares 集群、应用和硬件节点等。
+- [olares-cli](../developer/install/cli/olares-cli.md)：命令行工具，用于管理 Olares 集群、应用和硬件节点等。
 - [olaresd](../developer/install/installation-overview.md#系统守护进程olaresd)：Olares 的守护进程，用于监控硬件和网络变更、处理集群升级和重启等。
 
 这些工具简化了 Olares 的安装、维护和扩展过程。
@@ -165,7 +165,6 @@ Olares 提供以下 AI 能力：
 
 系统服务包括：
 - 通知：传递系统级通知。
-- 分析：提供类似 Google Analytics 的网络分析。
 - 备份*：支持目录、应用和集群备份。*（开发中）*
 - 升级*：支持系统自动升级。*（开发中）*
 

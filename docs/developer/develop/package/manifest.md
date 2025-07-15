@@ -92,7 +92,6 @@ options:
 
 Olares currently supports four types of applications, each requiring different fields. This document uses `app` as an example to explain each field. For information on other types, please refer to the corresponding configuration guide.
 - [Recommend Configuration Guide](recommend.md)
-- [Model Configuration Guide](model.md)
 
 :::info Example
 ```Yaml
@@ -311,10 +310,10 @@ ports:
 ```
 :::
 
-Olares automatically assigns a random port (33333-36789) for your app. These ports can be accessed via the app entrance domain from local network. For example: `84864c1f.local.your_olares_id.olares.com:33805`.
+Olares automatically assigns a random port (33333-36789) for your app. These ports can be accessed via the app entrance domain. For example: `84864c1f.your_olares_id.olares.com:33805`.
 
 :::info NOTE
-The exposed ports can only be accessed on the local network or through a VPN.
+The exposed ports can only be accessed through LarePass VPN.
 :::
 
 ## Permission
