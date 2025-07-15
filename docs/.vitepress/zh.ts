@@ -529,69 +529,6 @@ const side = {
             },
           ],
         },
-          {
-          text: "CLI 1.12",
-          link: "/zh/developer/install/cli-1.12/olares-cli",
-          collapsed: true,
-          items: [
-            { text: "gpu", link: "/zh/developer/install/cli-1.12/gpu" },
-            { text: "osinfo", link: "/zh/developer/install/cli-1.12/osinfo" },
-            { text: "node", link: "/zh/developer/install/cli-1.12/node" },
-            {
-              text: "backups",
-              link: "/zh/developer/install/cli-1.12/backups",
-              collapsed: true,
-              items: [
-                  {text: "download", link: "/zh/developer/install/cli-1.12/backups-download"},
-                  {text: "region", link: "/zh/developer/install/cli-1.12/backups-region"},
-                  {text: "backup", link: "/zh/developer/install/cli-1.12/backups-backup"},
-                  {text: "restore", link: "/zh/developer/install/cli-1.12/backups-restore"},
-                  {text: "snapshots", link: "/zh/developer/install/cli-1.12/backups-snapshots"},
-                  ],
-            },
-            {
-              text: "change-ip",
-              link: "/zh/developer/install/cli-1.12/change-ip",
-            },
-            {
-              text: "download",
-              link: "/zh/developer/install/cli-1.12/download",
-            },
-            { text: "info", link: "/zh/developer/install/cli-1.12/info" },
-            {
-              text: "install",
-              link: "/zh/developer/install/cli-1.12/install",
-            },
-            {
-              text: "logs",
-              link: "/zh/developer/install/cli-1.12/logs",
-            },
-            {
-              text: "precheck",
-              link: "/zh/developer/install/cli-1.12/precheck",
-            },
-            {
-              text: "prepare",
-              link: "/zh/developer/install/cli-1.12/prepare",
-            },
-            {
-              text: "release",
-              link: "/zh/developer/install/cli-1.12/release",
-            },
-            {
-              text: "start",
-              link: "/zh/developer/install/cli-1.12/start",
-            },
-            {
-              text: "stop",
-              link: "/zh/developer/install/cli-1.12/stop",
-            },
-            {
-              text: "uninstall",
-              link: "/zh/developer/install/cli-1.12/uninstall",
-            },
-          ],
-        },
     ],
   },
         {

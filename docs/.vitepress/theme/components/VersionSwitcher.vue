@@ -21,7 +21,7 @@ const localUrl = computed(() => {
     }
   } 
   
-  console.log('localUrl', url);
+  //console.log('localUrl', url);
   return url;
 });
 
@@ -30,10 +30,10 @@ const currentVersion = computed(() => {
 
   for (const v of props.versions) {
     const u = `/${v}/`;
-    console.log('u', u);
-    console.log('router.route.path', router.route.path);
+    // console.log('u', u);
+    // console.log('router.route.path', router.route.path);
     if (router.route.path.startsWith(u)) {
-      console.log('match version', v);
+      //console.log('match version', v);
       version = v;
       break;
     }

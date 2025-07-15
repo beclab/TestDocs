@@ -499,7 +499,7 @@ const side = {
             },
             {
               text: "prepare",
-              link: "/developer/install/cli/prepare",
+              link: "/developer/install/cli/olares-prepare",
             },
             {
               text: "release",
