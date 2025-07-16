@@ -465,135 +465,66 @@ const side = {
       {
         text: "Olares CLI",
         collapsed: true,
+        link: "/zh/developer/install/cli/olares-cli",
         items: [
+          { text: "gpu", link: "/zh/developer/install/cli/gpu" },
+          { text: "osinfo", link: "/zh/developer/install/cli/osinfo" },
+          { text: "node", link: "/zh/developer/install/cli/node" },
           {
-            text: "CLI 1.11",
-            link: "/zh/developer/install/cli-1.11/olares-cli",
+            text: "backups",
+            link: "/zh/developer/install/cli/backups",
             collapsed: true,
             items: [
-              { text: "gpu", link: "/zh/developer/install/cli-1.11/gpu" },
-              { text: "info", link: "/zh/developer/install/cli-1.11/info" },
-              { text: "node", link: "/zh/developer/install/cli-1.11/node" },
-              {
-                text: "olares backups",
-                link: "/zh/developer/install/cli-1.11/olares-backups",
-                collapsed: true,
-                items: [
-                  {text: "download", link: "/zh/developer/install/cli-1.11/download"},
-                  {text: "region", link: "/zh/developer/install/cli-1.11/region"},
-                  {text: "backup", link: "/zh/developer/install/cli-1.11/backup"},
-                  {text: "restore", link: "/zh/developer/install/cli-1.11/restore"},
-                  {text: "snapshots", link: "/zh/developer/install/cli-1.11/snapshots"},
-                  ],
-            },
-            {
-              text: "olares change-ip",
-              link: "/zh/developer/install/cli-1.11/olares-change-ip",
-            },
-            {
-              text: "olares download",
-              link: "/zh/developer/install/cli-1.11/olares-download",
-            },
-            { text: "olares info", link: "/zh/developer/install/cli-1.11/olares-info" },
-            {
-              text: "olares install",
-              link: "/zh/developer/install/cli-1.11/olares-install",
-            },
-            {
-              text: "olares logs",
-              link: "/zh/developer/install/cli-1.11/olares-logs",
-            },
-            {
-              text: "olares precheck",
-              link: "/zh/developer/install/cli-1.11/olares-precheck",
-            },
-            {
-              text: "olares prepare",
-              link: "/zh/developer/install/cli-1.11/olares-prepare",
-            },
-            {
-              text: "olares release",
-              link: "/zh/developer/install/cli-1.11/olares-release",
-            },
-            {
-              text: "olares start",
-              link: "/zh/developer/install/cli-1.11/olares-start",
-            },
-            {
-              text: "olares stop",
-              link: "/zh/developer/install/cli-1.11/olares-stop",
-            },
-            {
-              text: "olares uninstall",
-              link: "/zh/developer/install/cli-1.11/olares-uninstall",
-            },
-          ],
-        },
+                {text: "download", link: "/zh/developer/install/cli/backups-download"},
+                {text: "region", link: "/zh/developer/install/cli/backups-region"},
+                {text: "backup", link: "/zh/developer/install/cli/backups-backup"},
+                {text: "restore", link: "/zh/developer/install/cli/backups-restore"},
+                {text: "snapshots", link: "/zh/developer/install/cli/backups-snapshots"},
+                ],
+          },
           {
-          text: "CLI 1.12",
-          link: "/zh/developer/install/cli-1.12/olares-cli",
-          collapsed: true,
-          items: [
-            { text: "gpu", link: "/zh/developer/install/cli-1.12/gpu" },
-            { text: "osinfo", link: "/zh/developer/install/cli-1.12/osinfo" },
-            { text: "node", link: "/zh/developer/install/cli-1.12/node" },
-            {
-              text: "backups",
-              link: "/zh/developer/install/cli-1.12/backups",
-              collapsed: true,
-              items: [
-                  {text: "download", link: "/zh/developer/install/cli-1.12/backups-download"},
-                  {text: "region", link: "/zh/developer/install/cli-1.12/backups-region"},
-                  {text: "backup", link: "/zh/developer/install/cli-1.12/backups-backup"},
-                  {text: "restore", link: "/zh/developer/install/cli-1.12/backups-restore"},
-                  {text: "snapshots", link: "/zh/developer/install/cli-1.12/backups-snapshots"},
-                  ],
-            },
-            {
-              text: "change-ip",
-              link: "/zh/developer/install/cli-1.12/change-ip",
-            },
-            {
-              text: "download",
-              link: "/zh/developer/install/cli-1.12/download",
-            },
-            { text: "info", link: "/zh/developer/install/cli-1.12/info" },
-            {
-              text: "install",
-              link: "/zh/developer/install/cli-1.12/install",
-            },
-            {
-              text: "logs",
-              link: "/zh/developer/install/cli-1.12/logs",
-            },
-            {
-              text: "precheck",
-              link: "/zh/developer/install/cli-1.12/precheck",
-            },
-            {
-              text: "prepare",
-              link: "/zh/developer/install/cli-1.12/prepare",
-            },
-            {
-              text: "release",
-              link: "/zh/developer/install/cli-1.12/release",
-            },
-            {
-              text: "start",
-              link: "/zh/developer/install/cli-1.12/start",
-            },
-            {
-              text: "stop",
-              link: "/zh/developer/install/cli-1.12/stop",
-            },
-            {
-              text: "uninstall",
-              link: "/zh/developer/install/cli-1.12/uninstall",
-            },
-          ],
-        },
-    ],
-  },
+            text: "change-ip",
+            link: "/zh/developer/install/cli/change-ip",
+          },
+          {
+            text: "download",
+            link: "/zh/developer/install/cli/download",
+          },
+          { text: "info", link: "/zh/developer/install/cli/info" },
+          {
+            text: "install",
+            link: "/zh/developer/install/cli/install",
+          },
+          {
+            text: "logs",
+            link: "/zh/developer/install/cli/logs",
+          },
+          {
+            text: "precheck",
+            link: "/zh/developer/install/cli/precheck",
+          },
+          {
+            text: "prepare",
+            link: "/zh/developer/install/cli/prepare",
+          },
+          {
+            text: "release",
+            link: "/zh/developer/install/cli/release",
+          },
+          {
+            text: "start",
+            link: "/zh/developer/install/cli/start",
+          },
+          {
+            text: "stop",
+            link: "/zh/developer/install/cli/stop",
+          },
+          {
+            text: "uninstall",
+            link: "/zh/developer/install/cli/uninstall",
+          },
+        ],
+      },
         {
           text: "版本说明",
           link: "/zh/developer/install/versioning",

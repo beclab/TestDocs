@@ -21,14 +21,10 @@ Olares 为用户提供无障碍且安全灵活的网络解决方案。本文档�
   - 适用于阅读器、娱乐、生产力工具、桌面应用等
   - 需要通过[认证](account.md#多因素认证mfa)才能访问
 
-- **内部入口**
-  - 和私有入口类似
-  - 设备 LarePass 专用网络访问应用时无需鉴权
-
 ## 通过 LarePass 专用网络访问私有入口
 
-只需在设备上安装 LarePass，并启用专用网络 (/manual/larepass/private-network.md)，即可通过专属网址（如
-https://vault.alice123.olares.com）安全、快速地访问您的私有应用。
+只需在设备上安装 LarePass，并启用[专用网络](/zh/manual/larepass/private-network.md)，即可通过专属网址（如
+`https://vault.alice123.olares.com`）安全、快速地访问您的私有应用。
 
 ::: tip 注意
 如不启用 LarePass 专用网络，私有入口的请求会通过你的反向代理通道到达 Olares，可能会有网络延迟并产生费用。

@@ -4,30 +4,36 @@ layout: home
 
 hero:
   name: "Olares"
-  text: "Let people own their data again"
+  text: "An open-source personal cloud OS"
+  tagline: "Let people own their data again"
   actions:
-    - theme: brand
-      text: What is Olares?
-      link: /manual/feature-overview.html
-    - theme: alt
-      text: Get Started
-      link: /manual/get-started/
-    - theme: alt
-      text: GitHub
-      link: https://github.com/beclab/olares
+  - theme: brand
+    text: What is Olares?
+    link: /manual/docs-home
+  - theme: alt
+    text: Star us on GitHub
+    link: https://github.com/beclab/olares
+
 features:
-  - icon: 📝
-    title: Self-Hosted
-    details: A protocol-based, permissionless application ecosystem
-  - icon: 📝
-    title: Security
-    details: Enterprise-grade security solution that works out of the box
-  - icon: 📝
-    title: Collaboration
-    details: Self-hosted your productivity platform for team collaboration
-  - icon: 📝
-    title: Local AI
-    details: Redefines the Personalized AI assistant
+- icon: 🚀
+  title: Get started with Olares
+  details: Install Olares on your hardware and begin taking control of your data in minutes.
+  link: /manual/get-started/
+
+- icon: ⚙️
+  title: Master your system
+  details: Dive into Olares' system apps to configure, personalize, and access your personal cloud.
+  link: /manual/olares/
+
+- icon: 📱
+  title: Hands-on with LarePass
+  details: Securely access and manage your Olares from LarePass, the cross-platform client for Olares.
+  link: /manual/larepass/
+
+- icon: 💡
+  title: Explore Use Cases
+  details: Discover various ways you can leverage Olares in daily life with real-life tutorials and use cases.
+  link: /use-cases/
 ---
 
 <style>

@@ -7,21 +7,29 @@ outline: [2, 3]
 Every **Olares Application Chart** should include a `OlaresManifest.yaml` file in the root directory. `OlaresManifest.yaml` provides all the essential information about an Olares App. Both the **Olares Market protocol** and the Olares depend on this information to distribute and install applications.
 
 :::info NOTE
-Latest Olares Manifest version: `0.8.3`
-  - Add a `mandatory` field in the `dependencies` section for dependent applications required for the installation
-  - Add `tailscaleAcls` section to permit applications to open specified ports via Tailscale
+Latest Olares Manifest version: `0.9.0`
+- Added a `conflict` field in `options` to declare incompatible applications
+- Removed `analytics` field in `options`
+- Modified the format of the `tailscale` section
+- Added a `allowedOutboundPorts` field to allow non-http protocol external access through the specified port
+- Modified the format of the `ports` section
+
 :::
 :::details Changelog
-  `0.8.2`
-  - Add a `runAsUser` option to force the app to run under non root user
+`0.8.3`
+- Add a `mandatory` field in the `dependencies` section for dependent applications required for the installation
+- Add `tailscaleAcls` section to permit applications to open specified ports via Tailscale
 
-  `0.8.1`
-  - Add a `ports` section to specify exposed ports for UDP or TCP
-  
-  `0.7.1`
-  - Add new `authLevel` value `internal`
-  - Change `spec`>`language` to `spec`>`locale` and support i18n
-:::
+`0.8.2`
+- Add a `runAsUser` option to force the app to run under non root user
+
+`0.8.1`
+- Add a `ports` section to specify exposed ports for UDP or TCP
+
+`0.7.1`
+- Add new `authLevel` value `internal`
+- Change `spec`>`language` to `spec`>`locale` and support i18n
+  :::
 
 Here's an example of what a `OlaresManifest.yaml` file might look like:
 
@@ -88,9 +96,9 @@ options:
 ## olaresManifest.type
 
 - Type: `string`
-- Accepted Value: `app`, `recommend`, `model`, `middleware`
+- Accepted Value: `app`, `recommend`, `middleware`
 
-Olares currently supports four types of applications, each requiring different fields. This document uses `app` as an example to explain each field. For information on other types, please refer to the corresponding configuration guide.
+Olares currently supports 3 types of applications, each requiring different fields. This document uses `app` as an example to explain each field. For information on other types, please refer to the corresponding configuration guide.
 - [Recommend Configuration Guide](recommend.md)
 
 :::info Example
@@ -103,7 +111,7 @@ olaresManifest.type: app
 
 - Type: `string`
 
-As Olares evolves, the configuration specification of `OlaresManifest.yaml` may change. You can identify whether these changes will affect your application by checking the `olaresManifest.version`. The `olaresManifest.version` consists of three integers separated by periods. 
+As Olares evolves, the configuration specification of `OlaresManifest.yaml` may change. You can identify whether these changes will affect your application by checking the `olaresManifest.version`. The `olaresManifest.version` consists of three integers separated by periods.
 
 - An increase in the **first digit** indicates the introduction of incompatible configuration items. Applications that haven't updated their `OlaresManifest.yaml` will be unable to distribute or install.
 - An increase in the **second digit** signifies changes in the mandatory fields for distribution and installation. However, the Olares remains compatible with the application distribution and installation of previous configuration versions. We recommend developers to promptly update and upgrade the application's `OlaresManifest.yaml` file.
@@ -199,7 +207,7 @@ entrances:
 
 - Type: `string`
 - Accepted Value: `[a-z]([-a-z0-9]*[a-z0-9])?`
-  
+
   Name of the Entrance. It can be up to `63` characters, and needs to be unique in an app.
 
 ### port
@@ -211,7 +219,7 @@ entrances:
 
 - Type: `string`
 - Accepted Value: `[a-z]([-a-z0-9]*[a-z0-9])?`
-  
+
   Ingress name of current entrance, lowercase alphanumeric characters and `-` only. It can be up to `63` characters.
 
 ### title
@@ -298,22 +306,20 @@ Specify exposed ports
 :::info Example
 ```Yaml
 ports:
-- name: aaa          # Name of the entrance that provides service
-  host: udp          # Ingress name of the entrance that provides service
-  port: 8899         # Port of the entrance that provides service
-  protocol: udp      # Protocol type. udp and tcp are supported for now
-  exposePort: 30140  # The port to expose. A random port will be assigned if not specified 
-- name: bbb
-  host: udp
-  port: 8090
-  protocol: tcp
+- name: rdp-tcp             # Name of the entrance that provides service
+  host: windows-svc         # Ingress name of the entrance that provides service
+  port: 3389                # Port of the entrance that provides service
+  exposePort: 46879         # The port to be exposed can only be assigned to one application at a time within the cluster.
+  addToTailscaleAcl: true   # Automatically added to Tailscle's ACL
 ```
 :::
 
-Olares automatically assigns a random port (33333-36789) for your app. These ports can be accessed via the app entrance domain. For example: `84864c1f.your_olares_id.olares.com:33805`.
+Olares will expose the ports you specify for an application, which are accessible via the application domain name in the local network, for example: `84864c1f.your_olares_id.olares.com:46879`. For each port you expose, Olares configures both TCP and UDP with the same port number.
+
+When the `addToTailscaleAcl` field is set to `true`, the port will be automatically added to the Tailscale's ACL, and there is no need to configure in the tailscale section.
 
 :::info NOTE
-The exposed ports can only be accessed through LarePass VPN.
+The exposed ports can only be accessed on the local network or through a VPN.
 :::
 
 ## Permission
@@ -398,7 +404,7 @@ All system API [providers](../advanced/provider.md) are list below:
 | secret.infisical | v1 | secret | CreateSecret, RetrieveSecret
 | secret.vault | v1 | key | List, Info, Sign
 
-## TailscaleAcls
+## Tailscale
 - Type: `map`
 - Optional
 
@@ -406,13 +412,14 @@ Allow applications to add Access Control Lists (ACL) in Tailscale to open specif
 
 :::info Example
 ```Yaml
-tailscaleAcls:
-- proto: tcp
-  dst:
-  - "*:4557"
-- proto: "" # Optional. If not specified, all supported protocols will be allowed.
-  dst:
-  -  "*:4557"
+tailscale:
+  acls:
+  - proto: tcp
+    dst:
+    - "*:46879"
+  - proto: "" # Optional. If not specified, all supported protocols will be allowed.
+    dst:
+    -  "*:4557"    
 ```
 :::
 
@@ -473,7 +480,7 @@ spec:
 ```
 :::
 
-### i18n 
+### i18n
 
 To add multi-language support for your app in Olares Market:
 
@@ -489,13 +496,13 @@ Olares Market will automatically display the content of the corresponding "Olare
 ├── README.md
 ├── OlaresManifest.yaml
 ├── i18n
-│   ├── en-US
-│   │   └── OlaresManifest.yaml
-│   └── zh-CN
-│       └── OlaresManifest.yaml
+│   ├── en-US
+│   │   └── OlaresManifest.yaml
+│   └── zh-CN
+│       └── OlaresManifest.yaml
 ├── owners
 ├── templates
-│   └── deployment.yaml
+│   └── deployment.yaml
 └── values.yaml
 ```
 :::
@@ -666,19 +673,6 @@ options:
 ```
 :::
 
-### analytics
-- Type: `map`
-- Optional
-
-Enable website analytics for the app.
-
-:::info Example
-```yaml
-options:
-  analytics:
-    enabled: true
-```
-:::
 
 ### dependencies
 - Type: `list<map>`
@@ -766,7 +760,7 @@ mobileSupported: true
 - Type: `map`
 - Optional
 
-The Olares includes a built-in OpenID Connect authentication component to simplify identity verification of users. Enable this option to use OpenID in your app. 
+The Olares includes a built-in OpenID Connect authentication component to simplify identity verification of users. Enable this option to use OpenID in your app.
 ```yaml
 # OpenID related variables in yaml
 {{ .Values.oidc.client.id }}
@@ -794,3 +788,19 @@ Specifies the timeout limit for API providers in seconds. The default value is `
 apiTimeout: 0
 ```
 :::
+
+
+
+### allowedOutboundPorts
+- Type: `map`
+- Optional
+
+​​The specified ports will be opened to allow external access via non-HTTP protocols, such as SMTP.
+
+:::info Example
+```yaml
+allowedOutboundPorts:
+  - 465
+  - 587
+```
+:::   
