@@ -42,7 +42,7 @@ export default {
     const routerRedirect = () => {
       let localLanguage = localStorage.getItem(LANGUAGE_LOCAL_KEY) || 'en';
       
-      const versions = process.env.VERSIONS!.split(",") || [];
+      const versions = process.env.VERSIONS!.split(",") ||[];
       versions.push('default');
 
       const languages = process.env.LANGUAGES!.split(",") || [];
