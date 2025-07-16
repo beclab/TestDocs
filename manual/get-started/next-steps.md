@@ -17,14 +17,14 @@ Here are some suggested next steps:
     title="Explore use cases"
     description="Discover the various ways you can leverage Olares in daily life."
     :links="[
-      { text: 'Stable Diffusion', href: '/use-cases/stable-diffusion' },
-      { text: 'Open WebUI',        href: '/use-cases/openwebui'        },
-      { text: 'Perplexica',        href: '/use-cases/perplexica'       },
-      { text: 'Dify',              href: '/use-cases/dify'             },
-      { text: 'Steam',              href: '/use-cases/stream-game'      }
+      { text: 'Stable Diffusion', href: '../../use-cases/stable-diffusion' },
+      { text: 'Open WebUI',        href: '../../use-cases/openwebui'        },
+      { text: 'Perplexica',        href: '../../use-cases/perplexica'       },
+      { text: 'Dify',              href: '../../use-cases/dify'             },
+      { text: 'Steam',              href: '../../use-cases/stream-game'      }
     ]"
     buttonText="Learn more"
-    buttonLink="/use-cases/"
+    buttonLink="../../use-cases/"
   />
 
   <!-- Card 2 -->
@@ -65,11 +65,11 @@ Here are some suggested next steps:
     title="Understand Olares"
     description="Deepen your understanding of Olares."
     :links="[
-      { text: 'Olares ID',  href: '/manual/concepts/olares-id' },
-      { text: 'Account',    href: '/manual/concepts/account'   },
-      { text: 'Application',href: '/manual/concepts/application' },
-      { text: 'Network',href: '/manual/concepts/network' },
-      { text: 'Data',href: '/manual/concepts/data' },
+      { text: 'Olares ID',  href: '../concepts/olares-id' },
+      { text: 'Account',    href: '../concepts/account'   },
+      { text: 'Application',href: '../concepts/application' },
+      { text: 'Network',href: '../concepts/network' },
+      { text: 'Data',href: '../concepts/data' },
     ]"
     buttonText="Learn more"
     buttonLink="../concepts/"

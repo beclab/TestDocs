@@ -29,7 +29,7 @@ description: Olares 的上手指南，选择适合个人或团队的使用路径
 </div>
 
 <div class="cta">
-  <a href="/zh/use-cases/">
+  <a href="../../use-cases/">
     <div class="content">
       <h3>想用 Olares 开启高效工作？</h3>
       <p>探索用例和教程，了解 Olares 如何简化你的工作流程并开启新的可能性。</p>
