@@ -4,7 +4,7 @@
 
 ```shell
 npm install
-npm run docs:dev
+npm run dev
 ```
 
-Open Browser at http://localhost:5173/docs/
+Open Browser at `http://localhost:5173/`
