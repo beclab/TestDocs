@@ -123,8 +123,8 @@ export default defineVersionedConfig2(withMermaid({
       chunkSizeWarningLimit: Infinity,
     },
     define: {
-      'process.env.VERSIONS': JSON.stringify(process.env.VERSIONS || []),
-      'process.env.LANGUAGES': JSON.stringify(process.env.LANGUAGES || []),
+      'process.env.VERSIONS': JSON.stringify(process.env.VERSIONS || JSON.stringify([])),
+      'process.env.LANGUAGES': JSON.stringify(process.env.LANGUAGES || JSON.stringify([])),
     }
   },
   head: [
