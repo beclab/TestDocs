@@ -197,14 +197,6 @@ const side = {
           "link": "/zh/manual/olares/settings/",
           "items": [
             {
-              "text": "我的 Olares",
-              "collapsed": true,
-              "items": [
-                {text: "账户与设备", link: "/zh/manual/olares/settings/my-olares"},
-                {text: "更新系统", link: "/zh/manual/olares/settings/update"},
-              ],
-            },
-            {
               "text": "管理账户",
               "collapsed": true,
               "items": [
@@ -256,15 +248,7 @@ const side = {
               ],
              },
             {text: "管理 GPU", link: "/zh/manual/olares/settings/gpu-resource",},
-            {
-              "text": "备份与恢复",
-              "collapsed": true,
-              "items": [
-                {text: "备份", link: "/zh/manual/olares/settings/backup"},
-                {text: "恢复", link: "/zh/manual/olares/settings/restore"},
-              ],
-            },
-            {text: "开发者资源", link: "/zh/manual/olares/settings/developer"},
+            {text: "更新系统", link: "/zh/manual/olares/settings/update"},,
             ]
           },
         { "text": "仪表盘", "link": "/zh/manual/olares/resources-usage" },
@@ -465,72 +449,65 @@ const side = {
       {
         text: "Olares CLI",
         collapsed: true,
-        items: [
-          {
-            text: "CLI 1.11",
-            link: "/zh/developer/install/cli-1.11/olares-cli",
-            collapsed: true,
             items: [
-              { text: "gpu", link: "/zh/developer/install/cli-1.11/gpu" },
-              { text: "info", link: "/zh/developer/install/cli-1.11/info" },
-              { text: "node", link: "/zh/developer/install/cli-1.11/node" },
+              { text: "gpu", link: "/zh/developer/install/cli/gpu" },
+              { text: "info", link: "/zh/developer/install/cli/info" },
+              { text: "node", link: "/zh/developer/install/cli/node" },
               {
                 text: "olares backups",
-                link: "/zh/developer/install/cli-1.11/olares-backups",
+                link: "/zh/developer/install/cli/olares-backups",
                 collapsed: true,
                 items: [
-                  {text: "download", link: "/zh/developer/install/cli-1.11/download"},
-                  {text: "region", link: "/zh/developer/install/cli-1.11/region"},
-                  {text: "backup", link: "/zh/developer/install/cli-1.11/backup"},
-                  {text: "restore", link: "/zh/developer/install/cli-1.11/restore"},
-                  {text: "snapshots", link: "/zh/developer/install/cli-1.11/snapshots"},
+                  {text: "download", link: "/zh/developer/install/cli/download"},
+                  {text: "region", link: "/zh/developer/install/cli/region"},
+                  {text: "backup", link: "/zh/developer/install/cli/backup"},
+                  {text: "restore", link: "/zh/developer/install/cli/restore"},
+                  {text: "snapshots", link: "/zh/developer/install/cli/snapshots"},
                   ],
             },
             {
               text: "olares change-ip",
-              link: "/zh/developer/install/cli-1.11/olares-change-ip",
+              link: "/zh/developer/install/cli/olares-change-ip",
             },
             {
               text: "olares download",
-              link: "/zh/developer/install/cli-1.11/olares-download",
+              link: "/zh/developer/install/cli/olares-download",
             },
-            { text: "olares info", link: "/zh/developer/install/cli-1.11/olares-info" },
+            { text: "olares info", link: "/zh/developer/install/cli/olares-info" },
             {
               text: "olares install",
-              link: "/zh/developer/install/cli-1.11/olares-install",
+              link: "/zh/developer/install/cli/olares-install",
             },
             {
               text: "olares logs",
-              link: "/zh/developer/install/cli-1.11/olares-logs",
+              link: "/zh/developer/install/cli/olares-logs",
             },
             {
               text: "olares precheck",
-              link: "/zh/developer/install/cli-1.11/olares-precheck",
+              link: "/zh/developer/install/cli/olares-precheck",
             },
             {
               text: "olares prepare",
-              link: "/zh/developer/install/cli-1.11/olares-prepare",
+              link: "/zh/developer/install/cli/olares-prepare",
             },
             {
               text: "olares release",
-              link: "/zh/developer/install/cli-1.11/olares-release",
+              link: "/zh/developer/install/cli/olares-release",
             },
             {
               text: "olares start",
-              link: "/zh/developer/install/cli-1.11/olares-start",
+              link: "/zh/developer/install/cli/olares-start",
             },
             {
               text: "olares stop",
-              link: "/zh/developer/install/cli-1.11/olares-stop",
+              link: "/zh/developer/install/cli/olares-stop",
             },
             {
               text: "olares uninstall",
-              link: "/zh/developer/install/cli-1.11/olares-uninstall",
+              link: "/zh/developer/install/cli/olares-uninstall",
             },
           ],
         },
-    ],
-  },
         {
           text: "版本说明",
           link: "/zh/developer/install/versioning",

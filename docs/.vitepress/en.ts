@@ -196,14 +196,6 @@ const side = {
           link: "/manual/olares/settings/",
           items: [
             {
-              text: "My Olares",
-              collapsed: true,
-              items: [
-                {text: "Account and device", link: "/manual/olares/settings/my-olares"},
-                {text: "Update system", link: "/manual/olares/settings/update"},
-              ],
-            },
-            {
               text: "Manage accounts",
               collapsed: true,
               items: [
@@ -254,16 +246,8 @@ const side = {
                 },
               ],
              },
-            {text: "Manage GPU", link: "/manual/olares/settings/gpu-resource",},
-            {
-              text: "Backup and restore",
-              collapsed: true,
-              items: [
-                {text: "Backup", link: "/manual/olares/settings/backup"},
-                {text: "Restore", link: "/manual/olares/settings/restore"},
-              ],
-            },
-            {text: "Developer resources", link: "/manual/olares/settings/developer"},
+            {text: "Manage GPU", link: "/manual/olares/settings/gpu-resource"},
+            {text: "Update system", link: "/manual/olares/settings/update"},
             ]
           },
           {text: "Dashboard", link: "/manual/olares/resources-usage"},
@@ -462,60 +446,60 @@ const side = {
           collapsed: true,
           items: [
             { text: "gpu", link: "/developer/install/cli/gpu" },
-            { text: "osinfo", link: "/developer/install/cli/osinfo" },
+            { text: "info", link: "/developer/install/cli/info" },
             { text: "node", link: "/developer/install/cli/node" },
             {
-              text: "backups",
-              link: "/developer/install/cli/backups",
+              text: "olares backups",
+              link: "/developer/install/cli/olares-backups",
               collapsed: true,
               items: [
-                  {text: "download", link: "/developer/install/cli/backups-download"},
-                  {text: "region", link: "/developer/install/cli/backups-region"},
-                  {text: "backup", link: "/developer/install/cli/backups-backup"},
-                  {text: "restore", link: "/developer/install/cli/backups-restore"},
-                  {text: "snapshots", link: "/developer/install/cli/backups-snapshots"},
+                  {text: "download", link: "/developer/install/cli/download"},
+                  {text: "region", link: "/developer/install/cli/region"},
+                  {text: "backup", link: "/developer/install/cli/backup"},
+                  {text: "restore", link: "/developer/install/cli/restore"},
+                  {text: "snapshots", link: "/developer/install/cli/snapshots"},
                   ],
             },
             {
-              text: "change-ip",
-              link: "/developer/install/cli/change-ip",
+              text: "olares change-ip",
+              link: "/developer/install/cli/olares-change-ip",
             },
             {
-              text: "download",
-              link: "/developer/install/cli/download",
+              text: "olares download",
+              link: "/developer/install/cli/olares-download",
             },
-            { text: "info", link: "/developer/install/cli/info" },
+            { text: "olares info", link: "/developer/install/cli/olares-info" },
             {
-              text: "install",
-              link: "/developer/install/cli/install",
-            },
-            {
-              text: "logs",
-              link: "/developer/install/cli/logs",
+              text: "olares install",
+              link: "/developer/install/cli/olares-install",
             },
             {
-              text: "precheck",
-              link: "/developer/install/cli/precheck",
+              text: "olares logs",
+              link: "/developer/install/cli/olares-logs",
             },
             {
-              text: "prepare",
+              text: "olares precheck",
+              link: "/developer/install/cli/olares-precheck",
+            },
+            {
+              text: "olares prepare",
               link: "/developer/install/cli/olares-prepare",
             },
             {
-              text: "release",
-              link: "/developer/install/cli/release",
+              text: "olares release",
+              link: "/developer/install/cli/olares-release",
             },
             {
-              text: "start",
-              link: "/developer/install/cli/start",
+              text: "olares start",
+              link: "/developer/install/cli/olares-start",
             },
             {
-              text: "stop",
-              link: "/developer/install/cli/stop",
+              text: "olares stop",
+              link: "/developer/install/cli/olares-stop",
             },
             {
-              text: "uninstall",
-              link: "/developer/install/cli/uninstall",
+              text: "olares-uninstall",
+              link: "/developer/install/cli/olares-uninstall",
             },
           ],
         },
