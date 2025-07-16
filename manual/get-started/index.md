@@ -28,7 +28,7 @@ If you prefer to try the cloud version of Olares instead of self-hosting, refer 
 </div>
 
 <div class="cta">
-  <a href="/use-cases/">
+  <a href="../../use-cases/">
     <div class="content">
       <h3>Ready to get productive with Olares?</h3>
       <p>Explore our use cases and tutorials to see how Olares can streamline your workflow and unlock new possibilities.</p>

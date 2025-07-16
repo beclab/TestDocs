@@ -14,14 +14,14 @@ description: Olares 新手上路指南，包括系统初始配置、基础功能
     title="探索使用场景"
     description="了解在日常生活中使用 Olares 的各种方式。"
     :links="[
-      { text: 'Stable Diffusion', href: '/zh/use-cases/stable-diffusion' },
-      { text: 'Open WebUI',        href: '/zh/use-cases/openwebui'        },
-      { text: 'Perplexica',        href: '/zh/use-cases/perplexica'       },
-      { text: 'Dify',              href: '/zh/use-cases/dify'             },
-      { text: 'Steam',             href: '/zh/use-cases/stream-game'      }
+      { text: 'Stable Diffusion', href: '../../use-cases/stable-diffusion' },
+      { text: 'Open WebUI',        href: '../../use-cases/openwebui'        },
+      { text: 'Perplexica',        href: '../../use-cases/perplexica'       },
+      { text: 'Dify',              href: '../../use-cases/dify'             },
+      { text: 'Steam',             href: '../../use-cases/stream-game'      }
     ]"
     buttonText="了解更多"
-    buttonLink="/zh/use-cases/"
+    buttonLink="../../use-cases/"
   />
 
   <LaunchCard
@@ -58,11 +58,11 @@ description: Olares 新手上路指南，包括系统初始配置、基础功能
     title="了解 Olares"
     description="加深你对 Olares 的理解。"
     :links="[
-      { text: 'Olares ID',  href: '/zh/manual/concepts/olares-id' },
-      { text: '帐户',    href: '/zh/manual/concepts/account'   },
-      { text: '应用',href: '/zh/manual/concepts/application' },
-      { text: '网络',href: '/zh/manual/concepts/network' },
-      { text: '数据',href: '/zh/manual/concepts/data' },
+      { text: 'Olares ID',  href: '../../manual/concepts/olares-id' },
+      { text: '帐户',    href: '../../manual/concepts/account'   },
+      { text: '应用',href: '../../manual/concepts/application' },
+      { text: '网络',href: '../../manual/concepts/network' },
+      { text: '数据',href: '../../manual/concepts/data' },
     ]"
     buttonText="了解更多"
     buttonLink="../concepts/"
