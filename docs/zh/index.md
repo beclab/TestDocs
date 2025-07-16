@@ -4,30 +4,36 @@ layout: home
 
 hero:
   name: "Olares"
-  text: "Let people own their data again"
+  text: "开源个人云操作系统"
+  tagline: "让数据主权回归个人"
   actions:
-    - theme: brand
-      text: What is Olares?
-      link: /manual/feature-overview.html
-    - theme: alt
-      text: Get Started
-      link: /manual/get-started/
-    - theme: alt
-      text: GitHub
-      link: https://github.com/beclab/olares
+  - theme: brand
+    text: 什么是 Olares？
+    link: /zh/manual/docs-home
+  - theme: alt
+    text: 在 GitHub 上关注我们
+    link: https://github.com/beclab/olares
+
 features:
-  - icon: 📝
-    title: Self-Hosted
-    details: A protocol-based, permissionless application ecosystem
-  - icon: 📝
-    title: Security
-    details: Enterprise-grade security solution that works out of the box
-  - icon: 📝
-    title: Collaboration
-    details: Self-hosted your productivity platform for team collaboration
-  - icon: 📝
-    title: Local AI
-    details: Redefines the Personalized AI assistant
+- icon: 🚀
+  title: Olares 快速上手
+  details: 在你的硬件上快速部署 Olares，即刻开始掌控你的数据。
+  link: /manual/get-started/
+
+- icon: ⚙️
+  title: 驾驭你的系统
+  details: 深入了解 Olares 的系统应用，随心配置、个性化和访问你的个人云。
+  link: /manual/olares/
+
+- icon: 📱
+  title: 熟悉 LarePass 客户端
+  details: 通过 LarePass—Olares 的跨平台客户端，安全访问和管理 Olares。
+  link: /manual/larepass/
+
+- icon: 💡
+  title: 探索使用场景
+  details: 通过真实的教程和使用案例，探索 Olares 丰富多样的应用方式。
+  link: /use-cases/
 ---
 
 <style>
