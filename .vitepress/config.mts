@@ -62,10 +62,9 @@ export default defineVersionedConfig2(withMermaid({
         appId: "DZ6H2FVQGO",
         apiKey: "e5257d88b605dc0e5b82b12854aea9a5",
         indexName: "olares",
-        contextualSearch: true, 
         searchParameters: {
           queryLanguages: ["zh", "en"],
-          facetFilters: ['version:' + process.env.CURRENT_VERSION || "main"]
+          facetFilters: ['version:' + (process.env.CURRENT_VERSION || "main")]
         },
         locales: {
           zh: {
