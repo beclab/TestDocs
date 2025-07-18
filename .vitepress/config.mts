@@ -65,7 +65,7 @@ export default defineVersionedConfig2(withMermaid({
         contextualSearch: true, 
         searchParameters: {
           queryLanguages: ["zh", "en"],
-          facetFilters: ['version:current']
+          facetFilters: ['version:' + (process.env.CURRENT_VERSION || "main")]
         },
         locales: {
           zh: {
