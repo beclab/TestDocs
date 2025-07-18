@@ -131,8 +131,8 @@ export default defineVersionedConfig2(withMermaid({
     [
       "meta",
       {
-        name: "google-site-verification",
-        content: "3AzyPY6Q-LxE8CBNwz6ppsqDJ4iQaiPY9V0MHJbQlbU",
+         name:"docsearch:version",
+         content: process.env.CURRENT_VERSION || "main"
       },
     ],
     // 引入 Material Design Icons
